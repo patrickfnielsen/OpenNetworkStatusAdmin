@@ -1,24 +1,15 @@
-# open-network-status-admin
+# OpenNetworkStatus Admin
+Status: **BETA**
 
-## Project setup
+A basic frontend for the API's exposed by [OpenNetworkStatus](https://github.com/patrickfnielsen/OpenNetworkStatus/).
+
+The frondend was developed using Vue3, by a backend developer so it might contain bugs - Please report any bugs you find!
+
+## Testing
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Config
+For the frontend to work, the API URL needs to be specified in config.js
