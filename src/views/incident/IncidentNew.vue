@@ -97,7 +97,7 @@ export default {
         }
 
         const addUpdate = (incidentId, status, message) => {
-            let incidentUpdateApi = new OpenNetworkStatus(`incidents/${incidentId}/updates`, config.apiUrl, store.state.auth.jwt.token);
+            let incidentUpdateApi = new OpenNetworkStatus(`incidents/${incidentId}/updates`, store.state.auth.jwt.token);
             incidentUpdateApi.add({status: status, message: message}).then(() => {
                 toast.success(`Incident '${incident.value.title}' created!`);
                 router.push({ name: 'incidents' })
