@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 class AuthService {
-    constructor(apiUrl) {
-        this.API_URL = apiUrl
+    constructor() {
+        this.API_URL = window.__env.api.url
     }
 
     async login (username, password) {
@@ -21,9 +21,9 @@ class AuthService {
 }
 
 class OpenNetworkStatus {
-    constructor(type, apiUrl, token, timeout=4000) {
+    constructor(type, token, timeout=4000) {
+        this.API_URL = window.__env.api.url
         this.TYPE = type
-        this.API_URL = apiUrl
         this.API_TOKEN = token;
         this.API_TIMEOUT = timeout;
     }

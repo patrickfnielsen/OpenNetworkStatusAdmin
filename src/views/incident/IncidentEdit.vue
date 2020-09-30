@@ -76,7 +76,6 @@ import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'IncidentEdit',
@@ -87,7 +86,7 @@ export default {
         const toast = useToast();
 
         const incident = ref({});
-        const api = new OpenNetworkStatus("incidents", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("incidents", store.state.auth.jwt.token);
 
         api.getById(route.params.id).then((data) => {
             data.updates = data.updates.reverse();

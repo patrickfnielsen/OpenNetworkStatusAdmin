@@ -52,7 +52,6 @@ import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'ComponentGroupEdit',
@@ -62,7 +61,7 @@ export default {
         const route = useRoute();
         const router = useRouter();
         const toast = useToast();
-        const api = new OpenNetworkStatus("component-groups", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("component-groups", store.state.auth.jwt.token);
 
         api.getById(route.params.id).then((data) => {
             group.value = data;

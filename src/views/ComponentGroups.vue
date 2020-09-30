@@ -34,7 +34,6 @@ import { useStore } from 'vuex';
 import { useToast } from "vue-toastification";
 import ConfirmDialog from "@/components/ConfirmDialog"
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'ComponentGroups',
@@ -43,7 +42,7 @@ export default {
         const toast = useToast();
 
         const componentGroups = ref([]);
-        const api = new OpenNetworkStatus("component-groups", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("component-groups", store.state.auth.jwt.token);
         
         api.getAll().then((data) => {
             componentGroups.value = data;

@@ -1,4 +1,3 @@
-import config from "@/config"
 import { AuthService } from '@/api'
 
 export const auth = {
@@ -32,7 +31,7 @@ export const auth = {
     },
     actions: {
         login({ commit }, user) {
-            return new AuthService(config.apiUrl).login(user.username, user.password).then(
+            return new AuthService().login(user.username, user.password).then(
                 jwt => {
                     localStorage.setItem('auth-jwt', JSON.stringify(jwt));
                     commit('loginSuccess', { jwt: jwt, username: user.username });

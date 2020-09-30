@@ -43,7 +43,6 @@ import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'IncidentUpdateNew',
@@ -56,7 +55,7 @@ export default {
         const update = ref({
             status: "Investigating"
         });
-        const api = new OpenNetworkStatus(`incidents/${route.params.id}/updates`, config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus(`incidents/${route.params.id}/updates`, store.state.auth.jwt.token);
 
         const addUpdate = () => {
             api.add(update.value).then(() => {

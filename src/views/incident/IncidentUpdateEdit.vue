@@ -43,7 +43,6 @@ import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'IncidentUpdateEdit',
@@ -54,7 +53,7 @@ export default {
         const toast = useToast();
 
         const update = ref({});
-        const api = new OpenNetworkStatus("incidents/updates", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("incidents/updates", store.state.auth.jwt.token);
 
         api.getById(route.params.id).then((data) => {
             update.value = data;

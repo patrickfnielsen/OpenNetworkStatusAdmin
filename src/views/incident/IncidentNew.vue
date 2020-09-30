@@ -66,7 +66,6 @@ import { useRouter} from 'vue-router';
 import { useToast } from "vue-toastification";
 
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'IncidentNew',
@@ -79,7 +78,7 @@ export default {
             impact: "None",
             initial_status: "Investigating"
         });
-        const incidentApi = new OpenNetworkStatus("incidents", config.apiUrl, store.state.auth.jwt.token);
+        const incidentApi = new OpenNetworkStatus("incidents", store.state.auth.jwt.token);
 
         const newIncident = () => {
             let status = incident.value.initial_status;

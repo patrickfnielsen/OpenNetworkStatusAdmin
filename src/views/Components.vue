@@ -36,7 +36,6 @@ import { useStore } from 'vuex';
 import { useToast } from "vue-toastification";
 import ConfirmDialog from "@/components/ConfirmDialog"
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'Components',
@@ -45,7 +44,7 @@ export default {
         const toast = useToast();
 
         const components = ref([]);
-        const api = new OpenNetworkStatus("components", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("components", store.state.auth.jwt.token);
         
         api.getAll().then((data) => {
             components.value = data;

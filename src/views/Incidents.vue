@@ -41,7 +41,6 @@ import { useToast } from "vue-toastification";
 
 import ConfirmDialog from "@/components/ConfirmDialog"
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 import helpers from '@/helpers';
 
 export default {
@@ -51,7 +50,7 @@ export default {
         const toast = useToast();
 
         const incidents = ref([]);
-        const api = new OpenNetworkStatus("incidents", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("incidents", store.state.auth.jwt.token);
         
         api.getAll().then((data) => {
             incidents.value = data;

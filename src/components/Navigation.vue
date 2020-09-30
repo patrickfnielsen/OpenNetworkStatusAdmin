@@ -52,12 +52,10 @@
 </template>
 
 <script>
-import config from "@/config";
-
 export default {
     name: 'Navigation',
     setup() {
-        const siteUrl = config.apiUrl;
+        const siteUrl = window.__env.api.url;
 
         return {
             siteUrl

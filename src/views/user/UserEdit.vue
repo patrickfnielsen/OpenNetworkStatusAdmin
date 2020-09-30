@@ -36,7 +36,6 @@ import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'UserEdit',
@@ -47,7 +46,7 @@ export default {
         const toast = useToast();
 
         const user = ref({});
-        const api = new OpenNetworkStatus("users", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("users", store.state.auth.jwt.token);
 
         api.getById(route.params.id).then((data) => {
             user.value = data;

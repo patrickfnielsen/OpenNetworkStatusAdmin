@@ -68,7 +68,6 @@ import { useStore } from 'vuex';
 import { useRouter} from 'vue-router';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'MetricNew',
@@ -77,7 +76,7 @@ export default {
         const router = useRouter();
         const toast = useToast();
         const metric = ref({});
-        const api = new OpenNetworkStatus("metrics", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("metrics", store.state.auth.jwt.token);
 
         const newMetric = () => {
             if(metric.value.display === "true") {

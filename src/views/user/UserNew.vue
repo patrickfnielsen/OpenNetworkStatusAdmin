@@ -35,7 +35,6 @@ import { useStore } from 'vuex';
 import { useRouter} from 'vue-router';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'UserNew',
@@ -45,7 +44,7 @@ export default {
         const toast = useToast();
 
         const user = ref({});
-        const api = new OpenNetworkStatus("users", config.apiUrl, store.state.auth.jwt.token);
+        const api = new OpenNetworkStatus("users", store.state.auth.jwt.token);
 
         const newUser = () => {
             api.add(user.value).then(() => {

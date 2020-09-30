@@ -71,7 +71,6 @@ import { ref } from "vue";
 import { useStore } from 'vuex';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'Dashboard',
@@ -81,8 +80,8 @@ export default {
 
         const componentGroups = ref([]);
         const standaloneComponents = ref([]);
-        const componentApi = new OpenNetworkStatus("components", config.apiUrl, store.state.auth.jwt.token);
-        const componentGroupApi = new OpenNetworkStatus("component-groups", config.apiUrl, store.state.auth.jwt.token);     
+        const componentApi = new OpenNetworkStatus("components", store.state.auth.jwt.token);
+        const componentGroupApi = new OpenNetworkStatus("component-groups", store.state.auth.jwt.token);     
 
         componentGroupApi.getAll().then((data) => {
             data.forEach(function(group) {

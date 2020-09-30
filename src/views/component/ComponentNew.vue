@@ -72,7 +72,6 @@ import { useStore } from 'vuex';
 import { useRouter} from 'vue-router';
 import { useToast } from "vue-toastification";
 import { OpenNetworkStatus } from '@/api';
-import config from "@/config";
 
 export default {
     name: 'ComponentNew',
@@ -87,8 +86,8 @@ export default {
             group_id: null
         });
         const componentGroups = ref([])
-        const componentApi = new OpenNetworkStatus("components", config.apiUrl, store.state.auth.jwt.token);
-        const componentGroupApi = new OpenNetworkStatus("component-groups", config.apiUrl, store.state.auth.jwt.token);
+        const componentApi = new OpenNetworkStatus("components", store.state.auth.jwt.token);
+        const componentGroupApi = new OpenNetworkStatus("component-groups", store.state.auth.jwt.token);
 
         componentGroupApi.getAll().then((data) => {
             componentGroups.value = data;
