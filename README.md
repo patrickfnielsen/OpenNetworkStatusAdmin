@@ -12,4 +12,5 @@ npm run serve
 ```
 
 ## Config
-For the frontend to work, the API URL needs to be specified in config.js
+For the frontend to work, the API URL needs to be specified in cfg/config.js
+You can do this before building the docker image, or if you are using the docker hub image with k8s you can replace the file with a config map.
