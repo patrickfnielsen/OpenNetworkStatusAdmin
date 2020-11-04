@@ -103,7 +103,7 @@ export default {
                 component.value.group_id = null;
             }
 
-            if(component.value.display === "true") {
+            if(Boolean(component.value.display) == true) {
                 component.value.display = true;
             } else {
                 component.value.display = false;
