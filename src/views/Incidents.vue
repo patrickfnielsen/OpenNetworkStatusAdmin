@@ -14,8 +14,8 @@
             <tr v-for="incident in incidents" :key="incident.id">
                 <td>{{ incident.title }}</td>
                 <td>{{ incident.impact }}</td>
-                <td>{{ helpers.formatDate(incident.created_at) }}</td>
                 <td>{{ helpers.formatDate(incident.resolved_at) }}</td>
+                <td>{{ helpers.formatDate(incident.created_at) }}</td>
                 <td>
                     <div class="field is-grouped">
                         <p class="control">
